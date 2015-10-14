@@ -1,0 +1,13 @@
+- name: ensure nginx is installed
+  apt: name=nginx state=present
+  sudo: yes
+
+- name: ensure nginx is started
+  service: name=nginx state=started
+  sudo: yes
+
+- name: set virtual host config
+  copy: src={{ vm_group }} dest=/etc/nginx/sites-available/default
+  sudo: yes
+  notify:
+    - reload nginx

@@ -1,0 +1,6 @@
+- name: install virtualenv
+  pip: name=virtualenv
+  sudo: yes
+
+- name: install requeriments into virtualenv
+  pip: requirements=/vagrant/requirements.txt virtualenv=/vagrant/venv

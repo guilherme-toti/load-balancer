@@ -1,0 +1,5 @@
+- name: ensure python-pip is present
+  apt: pkg=python-pip state=present
+
+- name: ensure python-dev is present
+  apt: pkg=python-dev state=present

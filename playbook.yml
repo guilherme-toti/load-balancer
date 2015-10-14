@@ -1,0 +1,26 @@
+- hosts:
+  - all
+  sudo: true
+  tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+
+- hosts:
+    - development
+  sudo: true
+  roles:
+    - { role: nginx, vm_group: 'default' }
+    - pip
+    - virtualenv
+
+- hosts:
+    - master
+  sudo: true
+  roles:
+    - { role: nginx, vm_group: 'master' }
+
+- hosts:
+  - mysql
+  sudo: true
+  roles:
+    - mysql

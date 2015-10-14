@@ -1,0 +1,22 @@
+- name: ensure mysql server is installed
+  apt: name={{ item }} state=present
+  sudo: yes
+  with_items:
+      - mysql-server
+      - libmysqlclient-dev
+
+- name: ensure mysql server started
+  service: name=mysql state=started
+  sudo: yes
+
+- name: install mysql requirements for ansible
+  pip: name=MySQL-python
+  sudo: yes
+
+- name: ensure mysql_db database is created
+  mysql_db: name=app_db state=present
+  sudo: yes
+
+- name: ensure user has access to mysql database
+  mysql_user: name=remoto password=123 priv=app_db.*:ALL
+  sudo: yes
