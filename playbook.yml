@@ -23,4 +23,5 @@
   - mysql
   sudo: true
   roles:
+    - pip
     - mysql
