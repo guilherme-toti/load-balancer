@@ -1,0 +1,34 @@
+- name: ensure supervisor is present
+  apt: name=supervisor ensure=present
+  sudo: yes
+
+- name: ensure supervisor log folder exists
+  file: path={{ supervisor_log_path }} state=directory
+  sudo: yes
+
+- name: ensure supervisor program confs exists
+  file: path={{ supervisor_conf_path }} state=directory
+  sudo: yes
+
+- name: copy programs confs
+  copy: src={{ item }} dest={{ supervisor_conf_path }}/{{ item }}
+  with_items: programs
+  sudo: yes
+
+- name: add supervisord to init
+  command: update-rc.d supervisord defaults
+  sudo: yes
+
+- name: ensure supervisord is started
+  service: name=supervisord state=started
+  sudo: yes
+
+- name: reread supervisor apps
+  supervisorctl: name={{ item }} state=present
+  with_items: programs
+  sudo: yes
+
+- name: update supervisor apps
+  supervisorctl: name={{ item }} state=restarted
+  with_items: programs
+  sudo: yes
