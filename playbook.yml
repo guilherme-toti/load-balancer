@@ -12,6 +12,7 @@
     - { role: nginx, vm_group: 'default' }
     - pip
     - virtualenv
+    - supervisor
 
 - hosts:
     - master

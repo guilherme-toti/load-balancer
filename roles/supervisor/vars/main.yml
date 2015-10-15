@@ -2,4 +2,5 @@ supervisor_conf_path: /etc/supervisor/conf.d
 supervisor_log_path: /var/log/supervisor
 
 programs:
-  - api.conf
+  - name: api
+    file: api.conf
