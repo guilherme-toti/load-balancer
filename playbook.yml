@@ -26,3 +26,9 @@
   roles:
     - pip
     - mysql
+
+- hosts:
+  - redis
+  sudo: true
+  roles:
+    - redis

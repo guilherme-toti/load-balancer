@@ -32,13 +32,21 @@ Vagrant.configure(2) do |config|
     vm_mysql.vm.network "private_network", ip: "192.168.50.100"
   end
 
+  config.vm.define "vm_redis" do |vm_redis|
+    vm_redis.vm.box = "ubuntu/trusty64"
+
+    # Network Configs
+    vm_redis.vm.network "private_network", ip: "192.168.50.200"
+  end
+
   # Provisioning
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "playbook.yml"
     ansible.groups = {
       "development" => ["vm_1", "vm_2", "vm_3"],
       "master" => ["vm_master"],
-      "mysql" => ["vm_mysql"]
+      "mysql" => ["vm_mysql"],
+      "redis" => ["vm_redis"]
     }
   end
 end

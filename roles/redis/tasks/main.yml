@@ -1,0 +1,11 @@
+- name: ensure redis is installed
+  apt: name=redis-server state=present
+  sudo: yes
+
+- name: ensure redis is running
+  service: name=redis-server state=started
+  sudo: yes
+
+- name: add redis to init
+  command: update-rc.d redis-server defaults
+  sudo: yes
