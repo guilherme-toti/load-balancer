@@ -20,7 +20,7 @@ The MySQL machine is serving on ip `192.168.50.100` with one database called `ap
 
 # To-do's
 1. Create another vm for REDIS
-2. Install `supervisor` in vms
-3. Configure supervisor in all vms
+2. ~~Install `supervisor` in vms~~
+3. ~~Configure supervisor in all vms~~
 4. Develop the API
 5. Develop the application
