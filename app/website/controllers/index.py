@@ -6,5 +6,5 @@ class IndexHandler(tornado.web.RequestHandler):
         self.render("index.html")
 
     def post(self):
-        nome = self.get_body_argument('nome', '')
-        self.render("index.html", nome=nome)
+        name = self.get_body_argument('name', '')
+        self.render("index.html", name=name)

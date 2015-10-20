@@ -4,14 +4,14 @@
 
 {% block content %}
 
-{% if nome %}
-    Olá, {{ nome }}
+{% if name %}
+    Hello, {{ name }}!
 {% end %}
 
 <form action="/" method="post">
-    <label for="nome">Seu nome:</label>
-    <input type="text" id="nome" name="nome" />
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
 
-    <button type="submit">Enviar</button>
+    <button type="submit">Submit</button>
 </form>
 {% end %}
