@@ -3,5 +3,15 @@
 {% block title %}Index Title{% end %}
 
 {% block content %}
-Hello!
+
+{% if nome %}
+    Olá, {{ nome }}
+{% end %}
+
+<form action="/" method="post">
+    <label for="nome">Seu nome:</label>
+    <input type="text" id="nome" name="nome" />
+
+    <button type="submit">Enviar</button>
+</form>
 {% end %}
