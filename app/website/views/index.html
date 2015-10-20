@@ -4,13 +4,16 @@
 
 {% block content %}
 
-{% if name %}
-    Hello, {{ name }}!
+{% try %}
+    {% if username %}
+        Hello, {{ username }}!
+    {% end %}
+{% except %}
 {% end %}
 
 <form action="/" method="post">
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" />
+    <input type="text" id="name" name="username" />
 
     <button type="submit">Submit</button>
 </form>
