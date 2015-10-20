@@ -1,4 +1,4 @@
 .vagrant
-.pyc
+*.pyc
 venv
 .DS_Store
