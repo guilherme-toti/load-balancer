@@ -1,8 +1,48 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>{% block title %}Default title{% end %}</title>
-</head>
-<body>
-  {% block content %}Default Content{% end %}
-</body>
-</html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Pensamentos de Deus{% block title %}{% end %}</title>
+    <link href="{{ static_url('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ static_url('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ static_url('css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ static_url('css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ static_url('css/main.css') }}" rel="stylesheet">
+    {% block include_css %}{% end %}
+
+    <!--[if lt IE 9]>
+        <script src="{{ static_url('js/html5shiv.js') }}"></script>
+        <script src="{{ static_url('js/respond.min.js') }}"></script>
+        <![endif]-->
+        <link rel="shortcut icon" href="{{ static_url('images/ico/favicon.ico') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ static_url('images/ico/apple-touch-icon-144-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ static_url('images/ico/apple-touch-icon-114-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ static_url('images/ico/apple-touch-icon-72-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" href="{{ static_url('images/ico/apple-touch-icon-57-precomposed.png') }}">
+    </head><!--/head-->
+
+    <body>
+        {% module Template('components/header.html') %}
+        {% module Template('components/breadcrumb.html') %}
+        <section id="blog" class="padding-top">
+            <div class="container">
+                <div class="row">
+                    {% block page_content %}{% end %}
+                    {% module Template('components/right_menu.html') %}
+                </div>
+            </div>
+        </section>
+        <!--/#blog-->
+
+        {% module Template('components/footer.html') %}
+
+        <script type="text/javascript" src="{{ static_url('js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ static_url('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ static_url('js/wow.min.js') }}"></script>
+        <script type="text/javascript" src="{{ static_url('js/main.js') }}"></script>
+        {% block include_js %}{% end %}
+    </body>
+    </html>

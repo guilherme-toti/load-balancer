@@ -12,6 +12,7 @@ class Application(tornado.web.Application):
         settings = {
             "template_path": project_settings.TEMPLATE_PATH,
             "static_path": project_settings.STATIC_PATH,
+            "debug": True,
         }
 
         tornado.web.Application.__init__(self, handlers, **settings)
